@@ -1,3 +1,50 @@
+/****** Custom Fonts ******/
+@font-face {
+  font-family: Centra;
+  src: url("./assets/font/CentraNo2-Bold.ttf");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: Centra;
+  src: url("./assets/font/CentraNo2-Medium.ttf");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: Centra;
+  src: url("./assets/font/CentraNo2-Book.ttf");
+  font-weight: 400;
+}
+
+/****** Default CSS ******/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+} /* NOTE: CSS reset normalized the default styles applied by browsers to different elements, start with a clean slate */
+
+html {
+  scroll-behavior: smooth; /* NOTE: smooth scrollling is more visually pleasing */
+  scroll-padding-top: 75px; /* NOTE: ensures content is not hidden behind fixed header or navigation bar */ 
+}
+
+body {
+  font-weight: 400;
+  overflow-x: hidden; /* NOTE: prevents horizontal scrolling */
+  position: relative; /* NOTE: positions child elements inside the body relative to the body */
+  background-color: #121212 !important;
+  color: #fff !important;
+  font-family: 'Centra', sans-serif !important;  
+  /* NOTE: !important is used to prevent bootstrap from overriding CSS styling */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+  line-height: normal;
+}
+
 .App {
   text-align: center;
 }
@@ -36,3 +83,4 @@
     transform: rotate(360deg);
   }
 }
+
