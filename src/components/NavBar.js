@@ -1,29 +1,29 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
     //NOTE: useState allows you to add state to functional components, stores and manages data that can affect component rendering
-import { Navbar, Container } from "react-bootstrap";
+import { Navbar, Nav, Container } from "react-bootstrap";
 import logo from '../assets/img/logo.svg'
-import navIcon1 from "../assets/nav-icon1.svg"
-import navIcon2 from "../assets/nav-icon2.svg"
-import navIcon3 from "../assets/nav-icon3.svg"
+import navIcon1 from "../assets/img/nav-icon1.svg"
+import navIcon2 from "../assets/img/nav-icon2.svg"
+import navIcon3 from "../assets/img/nav-icon3.svg"
 
 export const NavBar = () => {
     const [activeLink, setActiveLink] = useState('home');
-    const [scrolled, seScrolled] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
         //NOTE: class that keeps information on whether or not the user has scrolled. 
 
     useEffect(() => {
         const onScroll = () => {
             if (window.scrollY > 50) {
-                seScrolled(true);
+                setScrolled(true);
             } else {
-                seScrolled(false);
+                setScrolled(false);
             }
         }
 
         window.addEventListener("scroll", onScroll);
             //NOTE: Upon user scrolling, onScroll function is implemented
-        return () => window.removeEventListener()
-    }, [])
+        return () => window.removeEventListener("scroll", onScroll)
+    }, []);
 
     const onUpdateActiveLink = (value) => {
         setActiveLink(value);
@@ -41,8 +41,8 @@ export const NavBar = () => {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
                         <Nav.Link href="#home" className={activeLink === 'home' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('home')}>Home</Nav.Link>
-                        <Nav.Link href="#skills" className={activeLink === 'home' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('skills')}>Skills</Nav.Link>
-                        <Nav.Link href="#projects" className={activeLink === 'home' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('projects')}>Projects</Nav.Link>
+                        <Nav.Link href="#skills" className={activeLink === 'skills' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('skills')}>Skills</Nav.Link>
+                        <Nav.Link href="#projects" className={activeLink === 'projects' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('projects')}>Projects</Nav.Link>
                     </Nav>
                     <span className="navbar-text">
                         <div className="social-icon">
